@@ -21,14 +21,17 @@ class App extends Component {
   };
 
   onButtonClick = (event) => {
-    let temp = [...this.state.todos];
-    temp.push(this.state.textBox);
-    this.setState({
-      todos: [...temp],
-      textBox: "",
-    });
-    document.getElementById("todos").value = "";
-    console.log("Click");
+    if (this.state.todos.includes(this.state.textBox)) {
+      alert("Item already present in list");
+      this.setState({
+        textBox: "",
+      });
+    } else if (this.state.textBox !== "") {
+      this.setState({
+        todos: [...this.state.todos, this.state.textBox],
+        textBox: "",
+      });
+    }
   };
 
   changeOnTextBox = (event) => {
