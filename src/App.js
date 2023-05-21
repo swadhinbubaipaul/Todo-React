@@ -38,7 +38,6 @@ class App extends Component {
 		this.setState({
 			textBox: event.target.value,
 		});
-		console.log("text", event.target.value);
 	};
 
 	render() {
@@ -50,6 +49,7 @@ class App extends Component {
 						<Input
 							textBox={this.state.textBox}
 							changeOnTextBox={this.changeOnTextBox}
+							onEnterPressed={this.onButtonClick}
 						/>
 						<Add onButtonClick={this.onButtonClick} />
 					</div>
